@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nadim Salim Sheikh — Portfolio</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Nadim Salim Sheikh — Team Lead, AI & Data Analytics. E-commerce, Real Estate, Power BI, Python, SQL.">
+</head>
+
+<body class="font-sans antialiased">
+
+  <div class="site-bg">
+
+    <!-- NAV (non-sticky - will scroll away with the page) -->
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-panel">
+      <div class="flex items-center gap-3">
+        <a href="#" class="logo inline-flex items-center gap-2">
+          <span class="logo-dot" aria-hidden></span>
+          <span class="logo-text">Nadim Sheikh</span>
+        </a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      <div class="hero-grid" data-aos="fade-up">
+        <div class="hero-left">
+          <h2 class="eyebrow">Hi, I’m</h2>
+          <h1 class="hero-title">Nadim — an AI-driven E-commerce & Analytics Leader</h1>
+          <p class="hero-sub">Blending Technology, Data, and Psychology to craft smarter solutions.</p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary show-profile">Show Profile</a>
+            <a href="#projects" class="btn btn-ghost know-more">Know More</a>
+            <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="meta-item"><strong>7+ yrs</strong> experience</span>
+            <span class="meta-item">Team Lead @ Arista Systems</span>
+            <span class="meta-item">Power BI • Python • SQL • SEO • Shopify</span>
+          </div>
+        </div>
+
+        <div class="hero-right" data-aos="fade-left">
+          <div class="photo-frame">
+            <img src="images/nadim-profile.jpg" alt="Nadim Salim Sheikh" class="profile-photo">
+            <div class="photo-glow" aria-hidden></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="site-divider"></div>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-5xl mx-auto px-6 py-10" data-aos="fade-up">
+      <div class="card">
+        <h2 class="section-title">About Me</h2>
+        <div class="prose">
+          <p>
+            I’m <strong>Nadim Salim Sheikh</strong>, Team Lead at Arista Systems with 7+ years of experience in e-commerce operations,
+            real estate automation, and data & analytics. I combine engineering, AI and psychology to design human-centered solutions
+            that improve operations and user experience.
+          </p>
+          <p>
+            I design BI solutions using Power BI, Power Query & DAX, automate workflows across Shopify / WMS / OMAS,
+            and build AI-backed tooling for text analytics and content optimization.
+          </p>
+          <p>
+            I have completed my <strong>Master’s in Counselling Psychology (IGNOU)</strong>, and I enjoy applying behavioral insights
+            to product design and analytics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="site-divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills" class="max-w-7xl mx-auto px-6 py-12" data-aos="fade-up">
+      <h2 class="section-title centered">Core Technical & Professional Skills</h2>
+      <div id="skills-container" class="skills-grid mt-8"></div>
+    </section>
+
+    <div class="site-divider"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-12" data-aos="fade-up">
+      <h2 class="section-title centered">Highlighted Projects</h2>
+      <div id="projects-container" class="projects-grid mt-8"></div>
+    </section>
+
+    <div class="site-divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-5xl mx-auto px-6 py-12" data-aos="fade-up">
+      <div class="card text-center">
+        <h3 class="section-title">Let’s Connect</h3>
+        <p class="muted mb-6">Open to leadership roles, AI-integrated product work, and analytics initiatives.</p>
+
+        <div class="flex justify-center gap-4 mb-6">
+          <a href="mailto:nadimsheikh96@gmail.com" class="social-btn">Email</a>
+          <a href="https://github.com/NadimS07" target="_blank" class="social-btn">GitHub</a>
+          <a href="https://www.linkedin.com/in/nadims07" target="_blank" class="social-btn">LinkedIn</a>
+          <a href="https://x.com/NadimS07" target="_blank" class="social-btn">X</a>
+          <a href="https://www.instagram.com/nadimsheikh07" target="_blank" class="social-btn">Instagram</a>
+        </div>
+
+        <p class="muted">© 2025 Nadim Salim Sheikh · Built with HTML, Tailwind CSS & AOS</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Init AOS
+    AOS.init({ duration: 900, once: true, easing: 'ease-in-out' });
+
+    // Populate skills from skills.json
+    fetch('skills.json')
+      .then(r => r.json())
+      .then(skills => {
+        const c = document.getElementById('skills-container');
+        // Expecting skills to be array of objects with { title, details } or similar
+        skills.forEach(s => {
+          const card = document.createElement('div');
+          card.className = 'skill-card';
+          card.setAttribute('data-aos', 'fade-up');
+          card.innerHTML = `
+            <h4 class="skill-title">${escapeHtml(s.title || s.name || '')}</h4>
+            <p class="skill-desc">${escapeHtml(s.details || s.items || s.description || '')}</p>
+          `;
+          c.appendChild(card);
+        });
+      })
+      .catch(err => console.warn('skills.json load error', err));
+
+    // Populate projects from projects.json + inject highlighted AI project & Portfolio site
+    fetch('projects.json')
+      .then(r => r.json())
+      .then(projects => {
+        const c = document.getElementById('projects-container');
+
+        // Add priority AI project first
+        const aiProject = {
+          title: "AI-Powered Readability, Tone & Plagiarism Analyzer",
+          description: `Full-stack AI system analyzing English text for readability (Flesch, Gunning Fog, SMOG, Dale–Chall),
+                        tone (TextBlob NLP) and plagiarism (difflib). Deployed: Frontend → Vercel, Backend → Railway.`,
+          links: [
+            { label: 'Live', url: 'https://readability-nadim.vercel.app' },
+            { label: 'API Docs', url: 'https://readability-backend-production.up.railway.app/docs' },
+            { label: 'Frontend', url: 'https://github.com/NadimS07/readability-frontend' },
+            { label: 'Backend', url: 'https://github.com/NadimS07/readability-backend' }
+          ]
+        };
+
+        // Portfolio site card
+        const portfolioProject = {
+          title: "Portfolio Website (This Site)",
+          description: "Personal portfolio built with HTML, Tailwind CSS & JavaScript, deployed via Vercel.",
+          links: [
+            { label: 'Live', url: 'https://nadim-portfolio-pied.vercel.app' },
+            { label: 'GitHub', url: 'https://github.com/NadimS07' }
+          ]
+        };
+
+        // Insert AI project first
+        const ordered = [aiProject, portfolioProject, ...projects];
+
+        ordered.forEach(p => {
+          const d = document.createElement('div');
+          d.className = 'project-card';
+          d.setAttribute('data-aos', 'fade-up');
+          let linksHtml = '';
+          if (p.links && p.links.length) {
+            linksHtml = `<div class="proj-links">${p.links.map(l=>`<a class="proj-link" href="${l.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`).join('')}</div>`;
+          } else if (p.url) {
+            linksHtml = `<div class="proj-links"><a class="proj-link" href="${p.url}" target="_blank" rel="noopener noreferrer">Live</a></div>`;
+          }
+
+          d.innerHTML = `
+            <h4 class="proj-title">${escapeHtml(p.title)}</h4>
+            <p class="proj-desc">${escapeHtml(p.description || '')}</p>
+            ${linksHtml}
+          `;
+          c.appendChild(d);
+        });
+      })
+      .catch(err => console.warn('projects.json load error', err));
+
+    // helper to avoid HTML injection when inserting text from JSON
+    function escapeHtml(unsafe) {
+      if (!unsafe && unsafe !== 0) return '';
+      return String(unsafe)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#039;');
+    }
+
+    // Smooth scroll for anchor links (native behavior for modern browsers, fallback here)
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click', (e)=>{
+        const href = link.getAttribute('href');
+        if (href === '#') return;
+        const el = document.querySelector(href);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
