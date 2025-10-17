@@ -95,9 +95,7 @@
   letter-spacing: 0.8px;
 }
 
-/* ========================= */
-/* ✨ HERO TITLE ANIMATION ✨ */
-/* ========================= */
+/* ✨ HERO TITLE ANIMATION */
 @keyframes typing {
   0% {
     width: 0;
@@ -194,9 +192,7 @@
   transform: translateY(-3px);
 }
 
-/* =============================== */
-/* ✨ RESUME BUTTON GLOW EFFECT ✨ */
-/* =============================== */
+/* ✨ RESUME BUTTON GLOW EFFECT */
 .btn-resume {
   position: relative;
   background: rgba(255, 255, 255, 0.06);
@@ -253,7 +249,7 @@
   border-radius: 8px;
 }
 
-/* HERO PHOTO - CINEMATIC LOOK */
+/* 🧠 HERO PHOTO — KEEP VISIBLE + CINEMATIC GLOW */
 .photo-frame {
   position: relative;
   width: 100%;
@@ -261,6 +257,7 @@
   overflow: hidden;
   border-radius: 16px;
   margin: 0 auto;
+  z-index: 5;
 }
 .profile-photo {
   display: block;
@@ -268,20 +265,28 @@
   border-radius: 16px;
   object-fit: cover;
   filter: brightness(1.05) contrast(1.1);
-  opacity: 1;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
   box-shadow: 0 18px 60px rgba(154, 205, 50, 0.15);
+  animation: subtleGlow 5s ease-in-out infinite alternate;
+}
+@keyframes subtleGlow {
+  from {
+    box-shadow: 0 18px 60px rgba(154, 205, 50, 0.15);
+  }
+  to {
+    box-shadow: 0 18px 80px rgba(154, 205, 50, 0.3);
+  }
 }
 .photo-frame::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent 40%);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent 40%);
+  border-radius: 16px;
   pointer-events: none;
-}
-.profile-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 25px 80px rgba(154, 205, 50, 0.25);
 }
 .photo-glow {
   position: absolute;
