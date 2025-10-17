@@ -39,31 +39,39 @@
       </div>
     </nav>
 
-    <!-- HERO -->
-    <header id="home" class="max-w-7xl mx-auto px-6 py-16 lg:py-24">
-      <div class="hero-grid" data-aos="fade-up">
-        <div class="hero-left">
-          <h2 class="eyebrow">Hi, I’m</h2>
-          <h1 class="hero-title">Nadim — an AI-driven E-commerce & Analytics Leader</h1>
-          <p class="hero-sub">Blending Technology, Data, and Psychology to craft smarter solutions.</p>
+    <!-- HERO (Cinematic layout update) -->
+    <header id="home" class="max-w-7xl mx-auto px-6 py-16 lg:py-24 hero-section">
+      <div class="hero-container flex flex-col-reverse lg:flex-row items-center justify-between gap-10" data-aos="fade-up">
+        
+        <!-- LEFT: TEXT -->
+        <div class="hero-left flex-1 text-left">
+          <h2 class="eyebrow text-lime-400 mb-2">Hi, I’m</h2>
+          <h1 class="hero-title text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+            Nadim — an AI-driven E-commerce & Analytics Leader
+          </h1>
+          <p class="hero-sub text-gray-300 text-lg max-w-2xl mb-6">
+            Blending Technology, Data, and Psychology to craft smarter solutions.
+          </p>
 
-          <div class="hero-actions">
+          <div class="hero-actions flex flex-wrap gap-4 mb-6">
             <a href="#about" class="btn btn-primary show-profile">Show Profile</a>
             <a href="#projects" class="btn btn-ghost know-more">Know More</a>
             <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
           </div>
 
-          <div class="hero-meta">
-            <span class="meta-item"><strong>7+ yrs</strong> experience</span>
-            <span class="meta-item">Team Lead @ Arista Systems</span>
-            <span class="meta-item">Power BI • Python • SQL • SEO • Shopify</span>
+          <div class="hero-meta text-gray-400 space-x-3 text-sm">
+            <span><strong>7+ yrs</strong> experience</span> |
+            <span>Team Lead @ Arista Systems</span> |
+            <span>Power BI • Python • SQL • SEO • Shopify</span>
           </div>
         </div>
 
-        <div class="hero-right" data-aos="fade-left">
-          <div class="photo-frame">
-            <img src="images/nadim-profile.jpg" alt="Nadim Salim Sheikh" class="profile-photo">
-            <div class="photo-glow" aria-hidden></div>
+        <!-- RIGHT: PHOTO (Cinematic image layout) -->
+        <div class="hero-right relative flex justify-center items-center flex-1" data-aos="fade-left">
+          <div class="photo-frame relative">
+            <img src="images/nadim-profile.jpg" alt="Nadim Salim Sheikh" class="profile-photo cinematic-photo" />
+            <div class="photo-overlay"></div>
+            <div class="photo-glow"></div>
           </div>
         </div>
       </div>
@@ -135,15 +143,12 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script>
-    // Init AOS
     AOS.init({ duration: 900, once: true, easing: 'ease-in-out' });
 
-    // Populate skills from skills.json
     fetch('skills.json')
       .then(r => r.json())
       .then(skills => {
         const c = document.getElementById('skills-container');
-        // Expecting skills to be array of objects with { title, details } or similar
         skills.forEach(s => {
           const card = document.createElement('div');
           card.className = 'skill-card';
@@ -154,16 +159,12 @@
           `;
           c.appendChild(card);
         });
-      })
-      .catch(err => console.warn('skills.json load error', err));
+      });
 
-    // Populate projects from projects.json + inject highlighted AI project & Portfolio site
     fetch('projects.json')
       .then(r => r.json())
       .then(projects => {
         const c = document.getElementById('projects-container');
-
-        // Add priority AI project first
         const aiProject = {
           title: "AI-Powered Readability, Tone & Plagiarism Analyzer",
           description: `Full-stack AI system analyzing English text for readability (Flesch, Gunning Fog, SMOG, Dale–Chall),
@@ -175,8 +176,6 @@
             { label: 'Backend', url: 'https://github.com/NadimS07/readability-backend' }
           ]
         };
-
-        // Portfolio site card
         const portfolioProject = {
           title: "Portfolio Website (This Site)",
           description: "Personal portfolio built with HTML, Tailwind CSS & JavaScript, deployed via Vercel.",
@@ -185,10 +184,7 @@
             { label: 'GitHub', url: 'https://github.com/NadimS07' }
           ]
         };
-
-        // Insert AI project first
         const ordered = [aiProject, portfolioProject, ...projects];
-
         ordered.forEach(p => {
           const d = document.createElement('div');
           d.className = 'project-card';
@@ -196,10 +192,7 @@
           let linksHtml = '';
           if (p.links && p.links.length) {
             linksHtml = `<div class="proj-links">${p.links.map(l=>`<a class="proj-link" href="${l.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`).join('')}</div>`;
-          } else if (p.url) {
-            linksHtml = `<div class="proj-links"><a class="proj-link" href="${p.url}" target="_blank" rel="noopener noreferrer">Live</a></div>`;
           }
-
           d.innerHTML = `
             <h4 class="proj-title">${escapeHtml(p.title)}</h4>
             <p class="proj-desc">${escapeHtml(p.description || '')}</p>
@@ -207,10 +200,8 @@
           `;
           c.appendChild(d);
         });
-      })
-      .catch(err => console.warn('projects.json load error', err));
+      });
 
-    // helper to avoid HTML injection when inserting text from JSON
     function escapeHtml(unsafe) {
       if (!unsafe && unsafe !== 0) return '';
       return String(unsafe)
@@ -221,7 +212,6 @@
           .replaceAll("'", '&#039;');
     }
 
-    // Smooth scroll for anchor links (native behavior for modern browsers, fallback here)
     document.querySelectorAll('a[href^="#"]').forEach(link=>{
       link.addEventListener('click', (e)=>{
         const href = link.getAttribute('href');
