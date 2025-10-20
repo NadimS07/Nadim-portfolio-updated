@@ -18,10 +18,9 @@
 </head>
 
 <body class="font-sans antialiased">
-
   <div class="site-bg">
 
-    <!-- NAV (non-sticky - will scroll away with the page) -->
+    <!-- NAV -->
     <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-panel">
       <div class="flex items-center gap-3">
         <a href="#" class="logo inline-flex items-center gap-2">
@@ -29,7 +28,6 @@
           <span class="logo-text">Nadim Sheikh</span>
         </a>
       </div>
-
       <div class="hidden md:flex items-center gap-6">
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About</a>
@@ -39,32 +37,28 @@
       </div>
     </nav>
 
-    <!-- HERO (Cinematic layout update) -->
-    <header id="home" class="max-w-7xl mx-auto px-6 py-16 lg:py-24 hero-section">
-      <div class="hero-container flex flex-col-reverse lg:flex-row items-center justify-between gap-10" data-aos="fade-up">
-        
-        <!-- LEFT: TEXT -->
-        <div class="hero-left flex-1 text-left">
-          <h2 class="eyebrow text-lime-400 mb-2">Hi, I’m</h2>
-          <h1 class="hero-title text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-            Nadim — an AI-driven E-commerce & Analytics Leader
-          </h1>
-          <p class="hero-sub text-gray-300 text-lg max-w-2xl mb-6">
-            Blending Technology, Data, and Psychology to craft smarter solutions.
-          </p>
-
-          <div class="hero-actions flex flex-wrap gap-4 mb-6">
-            <a href="#about" class="btn btn-primary show-profile">Show Profile</a>
-            <a href="#projects" class="btn btn-ghost know-more">Know More</a>
-            <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
-          </div>
-
-          <div class="hero-meta text-gray-400 space-x-3 text-sm">
-            <span><strong>7+ yrs</strong> experience</span> |
-            <span>Team Lead @ Arista Systems</span> |
-            <span>Power BI • Python • SQL • SEO • Shopify</span>
-          </div>
+    <!-- HERO (No Image, Centered Text) -->
+    <header id="home" class="max-w-7xl mx-auto px-6 py-16 lg:py-24 hero-section text-center">
+      <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up">
+        <h2 class="eyebrow text-lime-400 mb-2">Hi, I’m</h2>
+        <h1 class="hero-title text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+          Nadim — an AI-driven E-commerce & Analytics Leader
+        </h1>
+        <p class="hero-sub text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+          Blending Technology, Data, and Psychology to craft smarter solutions.
+        </p>
+        <div class="hero-actions flex flex-wrap justify-center gap-4 mb-6">
+          <a href="#about" class="btn btn-primary show-profile">Show Profile</a>
+          <a href="#projects" class="btn btn-ghost know-more">Know More</a>
+          <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
         </div>
+        <div class="hero-meta flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
+          <span><strong>7+ yrs</strong> experience</span> |
+          <span>Team Lead @ Arista Systems</span> |
+          <span>Power BI • Python • SQL • SEO • Shopify</span>
+        </div>
+      </div>
+    </header>
 
     <div class="site-divider"></div>
 
@@ -113,7 +107,6 @@
       <div class="card text-center">
         <h3 class="section-title">Let’s Connect</h3>
         <p class="muted mb-6">Open to leadership roles, AI-integrated product work, and analytics initiatives.</p>
-
         <div class="flex justify-center gap-4 mb-6">
           <a href="mailto:nadimsheikh96@gmail.com" class="social-btn">Email</a>
           <a href="https://github.com/NadimS07" target="_blank" class="social-btn">GitHub</a>
@@ -121,97 +114,15 @@
           <a href="https://x.com/NadimS07" target="_blank" class="social-btn">X</a>
           <a href="https://www.instagram.com/nadimsheikh07" target="_blank" class="social-btn">Instagram</a>
         </div>
-
         <p class="muted">© 2025 Nadim Salim Sheikh · Built with HTML, Tailwind CSS & AOS</p>
       </div>
     </section>
-
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
   <script>
     AOS.init({ duration: 900, once: true, easing: 'ease-in-out' });
-
-    fetch('skills.json')
-      .then(r => r.json())
-      .then(skills => {
-        const c = document.getElementById('skills-container');
-        skills.forEach(s => {
-          const card = document.createElement('div');
-          card.className = 'skill-card';
-          card.setAttribute('data-aos', 'fade-up');
-          card.innerHTML = `
-            <h4 class="skill-title">${escapeHtml(s.title || s.name || '')}</h4>
-            <p class="skill-desc">${escapeHtml(s.details || s.items || s.description || '')}</p>
-          `;
-          c.appendChild(card);
-        });
-      });
-
-    fetch('projects.json')
-      .then(r => r.json())
-      .then(projects => {
-        const c = document.getElementById('projects-container');
-        const aiProject = {
-          title: "AI-Powered Readability, Tone & Plagiarism Analyzer",
-          description: `Full-stack AI system analyzing English text for readability (Flesch, Gunning Fog, SMOG, Dale–Chall),
-                        tone (TextBlob NLP) and plagiarism (difflib). Deployed: Frontend → Vercel, Backend → Railway.`,
-          links: [
-            { label: 'Live', url: 'https://readability-nadim.vercel.app' },
-            { label: 'API Docs', url: 'https://readability-backend-production.up.railway.app/docs' },
-            { label: 'Frontend', url: 'https://github.com/NadimS07/readability-frontend' },
-            { label: 'Backend', url: 'https://github.com/NadimS07/readability-backend' }
-          ]
-        };
-        const portfolioProject = {
-          title: "Portfolio Website (This Site)",
-          description: "Personal portfolio built with HTML, Tailwind CSS & JavaScript, deployed via Vercel.",
-          links: [
-            { label: 'Live', url: 'https://nadim-portfolio-pied.vercel.app' },
-            { label: 'GitHub', url: 'https://github.com/NadimS07' }
-          ]
-        };
-        const ordered = [aiProject, portfolioProject, ...projects];
-        ordered.forEach(p => {
-          const d = document.createElement('div');
-          d.className = 'project-card';
-          d.setAttribute('data-aos', 'fade-up');
-          let linksHtml = '';
-          if (p.links && p.links.length) {
-            linksHtml = `<div class="proj-links">${p.links.map(l=>`<a class="proj-link" href="${l.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`).join('')}</div>`;
-          }
-          d.innerHTML = `
-            <h4 class="proj-title">${escapeHtml(p.title)}</h4>
-            <p class="proj-desc">${escapeHtml(p.description || '')}</p>
-            ${linksHtml}
-          `;
-          c.appendChild(d);
-        });
-      });
-
-    function escapeHtml(unsafe) {
-      if (!unsafe && unsafe !== 0) return '';
-      return String(unsafe)
-          .replaceAll('&', '&amp;')
-          .replaceAll('<', '&lt;')
-          .replaceAll('>', '&gt;')
-          .replaceAll('"', '&quot;')
-          .replaceAll("'", '&#039;');
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(link=>{
-      link.addEventListener('click', (e)=>{
-        const href = link.getAttribute('href');
-        if (href === '#') return;
-        const el = document.querySelector(href);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
   </script>
 </body>
 </html>
