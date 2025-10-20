@@ -16,8 +16,9 @@
 </head>
 
 <body class="font-sans antialiased">
-<!-- AI PARTICLE BACKGROUND -->
-<div id="ai-bg"></div>
+  <!-- 🧠 AI NEURAL NETWORK BACKGROUND -->
+  <div id="ai-bg"></div>
+
   <div class="site-bg">
     <!-- NAV -->
     <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-panel">
@@ -139,43 +140,91 @@
           return;
         }
         projects.forEach(p => {
+          let linksHtml = '';
+          if (p.links) {
+            linksHtml = `<div class='proj-links mt-3'>${p.links.map(l => `<a href='${l.url}' target='_blank' class='proj-link'>${l.label}</a>`).join('')}</div>`;
+          }
           c.innerHTML += `
             <div class="project-card" data-aos="fade-up">
               <h4 class="proj-title">${p.title}</h4>
               <p class="proj-desc">${p.description}</p>
+              ${linksHtml}
             </div>`;
         });
       });
   </script>
-<script>
-  window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero-section');
-    const scrollY = window.scrollY;
-    hero.style.transform = `translateY(${scrollY * 0.15}px)`;
-  });
-</script>
-<script>
-  // Create particles dynamically
-  const aiBg = document.getElementById('ai-bg');
-  const totalParticles = 28; // balanced for performance
 
-  for (let i = 0; i < totalParticles; i++) {
-    const p = document.createElement('div');
-    p.classList.add('particle');
-    p.style.top = `${Math.random() * 100}%`;
-    p.style.left = `${Math.random() * 100}%`;
-    p.style.width = `${8 + Math.random() * 10}px`;
-    p.style.height = p.style.width;
-    p.style.animationDelay = `${Math.random() * 10}s`;
-    aiBg.appendChild(p);
-  }
+  <!-- 🧬 Neural Network Background -->
+  <script>
+    const aiBg = document.getElementById('ai-bg');
+    const canvas = document.createElement('canvas');
+    aiBg.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
 
-  // Subtle cursor reaction (gentle parallax)
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    aiBg.style.transform = `translate(${x}px, ${y}px) scale(1.02)`;
-  });
-</script>
+    let particles = [];
+    const numParticles = 45;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.vy = (Math.random() - 0.5) * 0.6;
+        this.size = Math.random() * 2 + 1;
+        this.color = `rgba(154,205,50,${0.4 + Math.random() * 0.4})`;
+      }
+      draw() {
+        ctx.beginPath();
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 4);
+        g.addColorStop(0, this.color);
+        g.addColorStop(1, 'transparent');
+        ctx.fillStyle = g;
+        ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        this.draw();
+      }
+    }
+
+    for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+
+    function connectParticles() {
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a + 1; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.strokeStyle = `rgba(154,205,50,${0.12 - dist / 1000})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => p.update());
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
