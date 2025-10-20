@@ -1,4 +1,40 @@
 [
+  {
+    "title": "AI Readability, Tone & Plagiarism Analyzer",
+    "description": "An advanced AI system that evaluates English text across three powerful dimensions: Readability, Tone, and Plagiarism Detection. It combines cognitive linguistics, NLP sentiment modeling, and pattern-based AI for precise text evaluation.",
+    "details": [
+      "🧩 Readability Analysis — Calculates linguistic complexity using Flesch, Gunning Fog, SMOG, and Dale–Chall formulas. Provides intuitive readability levels like 'Easy' or 'Very Difficult' with actionable tips.",
+      "💬 Tone Analysis — Uses AI-driven TextBlob NLP to analyze emotional tone and communication style, enabling writers to align their message with intent and audience.",
+      "🔍 Plagiarism Detection — Employs difflib-based similarity matching, evolving toward semantic-level detection using transformer embeddings (BERT, Sentence Transformers).",
+      "🤖 How AI Is Used — Combines rule-based reasoning, NLP, and machine learning. Each module mimics cognitive processes of reading and emotional inference.",
+      "🧠 Technical Stack — Frontend: Next.js (React) · Backend: FastAPI (Python) · textstat · textblob · difflib",
+      "🌍 Hosting — Frontend on Vercel, Backend on Railway with automated CI/CD and secure CORS configuration."
+    ],
+    "links": [
+      { "label": "🌐 Web App", "url": "https://readability-nadim.vercel.app" },
+      { "label": "⚙️ API Docs", "url": "https://readability-backend-production.up.railway.app/docs" },
+      { "label": "💓 Health Check", "url": "https://readability-backend-production.up.railway.app/health" },
+      { "label": "→ Frontend Repo", "url": "https://github.com/NadimS07/readability-frontend" },
+      { "label": "→ Backend Repo", "url": "https://github.com/NadimS07/readability-backend" },
+      { "label": "→ Railway Project", "url": "https://railway.com/project/e6cdbe5b-64a8-4540-a54b-0f472b46a6f1?environmentId=52e3b6b3-8ad0-4d00-ba5" }
+    ],
+    "techHighlights": [
+      "90–95% accuracy in readability estimation.",
+      "Scalable architecture supporting semantic-level upgrades.",
+      "Empowers non-native speakers and professionals to write clearly, emotionally, and authentically."
+    ],
+    "impact": "Bridges technology, psychology, and communication — empowering people to write with clarity, empathy, and originality."
+  },
+  {
+    "title": "Portfolio Website (This Site)",
+    "description": "Personal portfolio built with HTML5, Tailwind CSS & JavaScript, deployed via Vercel.",
+    "links": [
+      { "label": "Live", "url": "https://nadim-portfolio-pied.vercel.app" },
+      { "label": "GitHub", "url": "https://github.com/NadimS07" }
+    ]
+  }
+]
+
   {"title":"Portfolio Website","description":"HTML5 + Tailwind CSS, deployed on Vercel."},
   {"title":"E-commerce Data Dashboards","description":"Dynamic dashboards using Power BI & Excel, improved decision-making by 20%."},
   {"title":"System Integration & Workflow Optimization","description":"Integrated Shopify, Warehouse, OMAS & Inventory to reduce bottlenecks by 15%."},
