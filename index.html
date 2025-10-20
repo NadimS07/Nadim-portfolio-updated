@@ -143,7 +143,23 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script>
-    AOS.init({ duration: 900, once: true, easing: 'ease-in-out' });
+
+AOS.init({
+  duration: 900,
+  once: true,
+  easing: 'ease-in-out',
+  disableMutationObserver: true, // 🚫 prevents AOS from resetting elements
+});
+
+// 🧩 Manual safeguard: force hero image visible after AOS load
+window.addEventListener("load", () => {
+  const heroImage = document.querySelector(".profile-photo");
+  if (heroImage) {
+    heroImage.style.opacity = "1";
+    heroImage.style.visibility = "visible";
+    heroImage.style.transition = "none";
+  }
+});
 
     fetch('skills.json')
       .then(r => r.json())

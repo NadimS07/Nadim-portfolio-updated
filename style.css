@@ -427,3 +427,34 @@
     margin-bottom: 20px;
   }
 }
+
+/* 🧩 FINAL FIX — Prevent AOS fade + keep hero photo visible */
+.hero-right [data-aos],
+.photo-frame,
+.profile-photo {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
+  animation: none !important;
+  will-change: auto !important;
+}
+
+/* Keep glow overlay steady */
+.photo-frame::after {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Optional: Smooth steady glow */
+@keyframes steadyGlow {
+  0% {
+    box-shadow: 0 18px 60px rgba(154, 205, 50, 0.12);
+  }
+  100% {
+    box-shadow: 0 18px 90px rgba(154, 205, 50, 0.25);
+  }
+}
+.profile-photo {
+  animation: steadyGlow 4s ease-in-out infinite alternate !important;
+}
