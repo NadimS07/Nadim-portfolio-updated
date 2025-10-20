@@ -145,5 +145,12 @@
         });
       });
   </script>
+<script>
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-section');
+    const scrollY = window.scrollY;
+    hero.style.transform = `translateY(${scrollY * 0.15}px)`;
+  });
+</script>
 </body>
 </html>
