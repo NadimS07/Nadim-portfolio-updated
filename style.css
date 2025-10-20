@@ -327,3 +327,38 @@
   }
   .hero-sub { font-size: 0.95rem; }
 }
+/* ============================== */
+/* 🧠 AI PARTICLE BACKGROUND EFFECT */
+/* ============================== */
+#ai-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, rgba(154,205,50,0.04), rgba(0,0,0,0.9));
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(154,205,50,0.8), rgba(154,205,50,0.1));
+  width: 10px;
+  height: 10px;
+  opacity: 0.6;
+  animation: floatParticle 12s infinite ease-in-out;
+}
+
+@keyframes floatParticle {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(30px, -40px) scale(1.3); opacity: 0.9; }
+  100% { transform: translate(-10px, 20px) scale(1); opacity: 0.6; }
+}
+
+/* Optional glow overlay */
+#ai-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(154,205,50,0.06), transparent 80%);
+  pointer-events: none;
+}
