@@ -13,21 +13,16 @@
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <meta name="description" content="Nadim Salim Sheikh — Team Lead, AI & Data Analytics. E-commerce, Real Estate, Power BI, Python, SQL.">
 </head>
 
 <body class="font-sans antialiased">
   <div class="site-bg">
-
     <!-- NAV -->
     <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-panel">
-      <div class="flex items-center gap-3">
-        <a href="#" class="logo inline-flex items-center gap-2">
-          <span class="logo-dot" aria-hidden></span>
-          <span class="logo-text">Nadim Sheikh</span>
-        </a>
-      </div>
+      <a href="#" class="logo inline-flex items-center gap-2">
+        <span class="logo-dot" aria-hidden></span>
+        <span class="logo-text">Nadim Sheikh</span>
+      </a>
       <div class="hidden md:flex items-center gap-6">
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About</a>
@@ -37,26 +32,24 @@
       </div>
     </nav>
 
-    <!-- HERO (No Image, Centered Text) -->
+    <!-- HERO -->
     <header id="home" class="max-w-7xl mx-auto px-6 py-16 lg:py-24 hero-section text-center">
-      <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up">
-        <h2 class="eyebrow text-lime-400 mb-2">Hi, I’m</h2>
-        <h1 class="hero-title text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
-          Nadim — an AI-driven E-commerce & Analytics Leader
-        </h1>
-        <p class="hero-sub text-gray-300 text-lg max-w-2xl mx-auto mb-6">
-          Blending Technology, Data, and Psychology to craft smarter solutions.
-        </p>
-        <div class="hero-actions flex flex-wrap justify-center gap-4 mb-6">
-          <a href="#about" class="btn btn-primary show-profile">Show Profile</a>
-          <a href="#projects" class="btn btn-ghost know-more">Know More</a>
-          <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
-        </div>
-        <div class="hero-meta flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
-          <span><strong>7+ yrs</strong> experience</span> |
-          <span>Team Lead @ Arista Systems</span> |
-          <span>Power BI • Python • SQL • SEO • Shopify</span>
-        </div>
+      <h2 class="eyebrow text-lime-400 mb-2">Hi, I’m</h2>
+      <h1 class="hero-title text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+        Nadim — an AI-driven E-commerce & Analytics Leader
+      </h1>
+      <p class="hero-sub text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+        Blending Technology, Data, and Psychology to craft smarter solutions.
+      </p>
+      <div class="hero-actions flex flex-wrap justify-center gap-4 mb-6">
+        <a href="#about" class="btn btn-primary">Show Profile</a>
+        <a href="#projects" class="btn btn-ghost">Know More</a>
+        <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
+      </div>
+      <div class="hero-meta flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
+        <span><strong>7+ yrs</strong> experience</span> |
+        <span>Team Lead @ Arista Systems</span> |
+        <span>Power BI • Python • SQL • SEO • Shopify</span>
       </div>
     </header>
 
@@ -69,16 +62,8 @@
         <div class="prose">
           <p>
             I’m <strong>Nadim Salim Sheikh</strong>, Team Lead at Arista Systems with 7+ years of experience in e-commerce operations,
-            real estate automation, and data & analytics. I combine engineering, AI and psychology to design human-centered solutions
+            real estate automation, and data & analytics. I combine engineering, AI, and psychology to design human-centered solutions
             that improve operations and user experience.
-          </p>
-          <p>
-            I design BI solutions using Power BI, Power Query & DAX, automate workflows across Shopify / WMS / OMAS,
-            and build AI-backed tooling for text analytics and content optimization.
-          </p>
-          <p>
-            I have completed my <strong>Master’s in Counselling Psychology (IGNOU)</strong>, and I enjoy applying behavioral insights
-            to product design and analytics.
           </p>
         </div>
       </div>
@@ -119,10 +104,46 @@
     </section>
   </div>
 
-  <!-- AOS Script -->
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 900, once: true, easing: 'ease-in-out' });
+    AOS.init({ duration: 900, once: true });
+
+    // Skills Loader
+    fetch('skills.json')
+      .then(r => r.ok ? r.json() : [])
+      .then(skills => {
+        const c = document.getElementById('skills-container');
+        if (!skills.length) {
+          c.innerHTML = '<p class="text-center text-gray-400">⚙️ Skills coming soon...</p>';
+          return;
+        }
+        skills.forEach(s => {
+          c.innerHTML += `
+            <div class="skill-card" data-aos="fade-up">
+              <h4 class="skill-title">${s.title}</h4>
+              <p class="skill-desc">${s.details}</p>
+            </div>`;
+        });
+      });
+
+    // Projects Loader
+    fetch('projects.json')
+      .then(r => r.ok ? r.json() : [])
+      .then(projects => {
+        const c = document.getElementById('projects-container');
+        if (!projects.length) {
+          c.innerHTML = '<p class="text-center text-gray-400">🚀 Projects coming soon...</p>';
+          return;
+        }
+        projects.forEach(p => {
+          c.innerHTML += `
+            <div class="project-card" data-aos="fade-up">
+              <h4 class="proj-title">${p.title}</h4>
+              <p class="proj-desc">${p.description}</p>
+            </div>`;
+        });
+      });
   </script>
 </body>
 </html>
