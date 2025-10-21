@@ -303,3 +303,34 @@
   pointer-events: none;
   filter: blur(0.5px) brightness(1.05);
 }
+/* ✅ HERO TEXT STABILITY FIX */
+.hero-text-container {
+  display: inline-block;
+  min-width: 600px; /* prevents layout jitter */
+  max-width: 100%;
+  text-align: center;
+}
+
+.hero-title {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.hero-sub {
+  display: block;
+  width: 100%;
+  margin: 0 auto 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, #9acd32, #7ad1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  /* no animations, no reflow */
+  transform: translateZ(0);
+  will-change: auto;
+}
