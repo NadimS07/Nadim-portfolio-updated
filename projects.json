@@ -15,10 +15,11 @@
     "title": "Portfolio Website (This Site)",
     "description": "Personal portfolio built with HTML5, Tailwind CSS & JavaScript, deployed via Vercel.",
     "links": [
-      { "label": "Live", "url": "https://nadim-portfolio-pied.vercel.app" },
-      { "label": "GitHub", "url": "https://github.com/NadimS07" }
+      { "label": "🌐 Live", "url": "https://nadim-portfolio-pied.vercel.app" },
+      { "label": "💻 GitHub", "url": "https://github.com/NadimS07" }
     ]
-  },
+  }
+]
   {
     "title": "E-commerce Data Dashboards",
     "description": "Dynamic dashboards using Power BI & Excel, improving decision-making by 20%.",

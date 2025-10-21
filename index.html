@@ -135,27 +135,37 @@
       });
 
     // Projects Loader
-    fetch('projects.json')
-      .then(r => r.ok ? r.json() : [])
-      .then(projects => {
-        const c = document.getElementById('projects-container');
-        if (!projects.length) {
-          c.innerHTML = '<p class="text-center text-gray-400">🚀 Projects coming soon...</p>';
-          return;
-        }
-        projects.forEach(p => {
-          let linksHtml = '';
-          if (p.links) {
-            linksHtml = `<div class='proj-links mt-3'>${p.links.map(l => `<a href='${l.url}' target='_blank' class='proj-link'>${l.label}</a>`).join('')}</div>`;
-          }
-          c.innerHTML += `
-            <div class="project-card" data-aos="fade-up">
-              <h4 class="proj-title">${p.title}</h4>
-              <p class="proj-desc">${p.description}</p>
-              ${linksHtml}
-            </div>`;
-        });
-      });
+fetch('projects.json')
+  .then(r => r.ok ? r.json() : [])
+  .then(projects => {
+    const c = document.getElementById('projects-container');
+    if (!projects.length) {
+      c.innerHTML = '<p class="text-center text-gray-400">🚀 Projects coming soon...</p>';
+      return;
+    }
+    projects.forEach(p => {
+      let linksHtml = '';
+      if (p.links && p.links.length) {
+        linksHtml = `
+          <div class="proj-links mt-3">
+            ${p.links.map(l => `
+              <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="proj-link">
+                ${l.label}
+              </a>
+            `).join('')}
+          </div>
+        `;
+      }
+      c.innerHTML += `
+        <div class="project-card" data-aos="fade-up">
+          <h4 class="proj-title">${p.title}</h4>
+          <p class="proj-desc">${p.description}</p>
+          ${linksHtml}
+        </div>
+      `;
+    });
+  });
+
   </script>
 
   <!-- 🧬 Neural Network Background (No parallax / static hero fix) -->
