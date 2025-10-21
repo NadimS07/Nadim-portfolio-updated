@@ -355,3 +355,28 @@
   transform: translateZ(0);
   will-change: auto;
 }
+/* ✅ FIX: Make project links clickable through gradient borders */
+.project-card,
+.skill-card {
+  position: relative;
+  isolation: isolate; /* creates a new stacking context */
+}
+
+.project-card::before,
+.skill-card::before {
+  pointer-events: none; /* prevent overlay from blocking clicks */
+  z-index: 0;
+}
+
+.proj-links,
+.skill-card > *,
+.project-card > * {
+  position: relative;
+  z-index: 1; /* ensure content stays above the glowing border */
+}
+
+/* Optional – make link hover even smoother */
+.proj-link {
+  z-index: 2;
+  cursor: pointer;
+}
