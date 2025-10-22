@@ -271,21 +271,38 @@
   box-shadow: 0 0 20px rgba(154,205,50,0.15);
 }
 
-/* CONNECT */
+/* 🧠 Enhanced Social Buttons */
 .social-btn {
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
   color: #e9fbff;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
+  box-shadow: 0 0 8px rgba(154, 205, 50, 0.05);
 }
-.social-btn:hover {
+
+.social-btn i {
+  font-size: 1.1rem;
   color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(154,205,50,0.1);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 18px rgba(154, 205, 50, 0.15);
+  border-color: rgba(154, 205, 50, 0.3);
+}
+
+.social-btn:hover i {
+  color: #7ad1ff;
+  transform: scale(1.15);
 }
 
 /* DIVIDER */
@@ -355,27 +372,24 @@
   transform: translateZ(0);
   will-change: auto;
 }
-/* ✅ FIX: Make project links clickable through gradient borders */
+
+/* ✅ FIX: Make project links clickable */
 .project-card,
 .skill-card {
   position: relative;
-  isolation: isolate; /* creates a new stacking context */
+  isolation: isolate;
 }
-
 .project-card::before,
 .skill-card::before {
-  pointer-events: none; /* prevent overlay from blocking clicks */
+  pointer-events: none;
   z-index: 0;
 }
-
 .proj-links,
 .skill-card > *,
 .project-card > * {
   position: relative;
-  z-index: 1; /* ensure content stays above the glowing border */
+  z-index: 1;
 }
-
-/* Optional – make link hover even smoother */
 .proj-link {
   z-index: 2;
   cursor: pointer;

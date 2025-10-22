@@ -1,7 +1,7 @@
 [
   {
-    "title": "AI Readability, Tone & Plagiarism Analyzer",
-    "description": "An advanced AI system that evaluates English text across three powerful dimensions — Readability, Tone, and Plagiarism Detection. It combines cognitive linguistics, NLP sentiment modeling, and pattern-based AI for precise text evaluation.",
+    "title": "AI Readability, Tone & Plagiarism Analyzer:",
+    "description": "An advanced AI system that evaluates English text across three powerful dimensions: Readability, Tone, and Plagiarism Detection. It combines cognitive linguistics, NLP sentiment modeling, and pattern-based AI for precise text evaluation.",
     "links": [
       { "label": "🌐 Web App", "url": "https://readability-nadim.vercel.app" },
       { "label": "⚙️ API Docs", "url": "https://readability-backend-production.up.railway.app/docs" },
@@ -20,17 +20,17 @@
     ]
   },
   {
-    "title": "E-commerce Data Dashboards",
+    "title": "E-commerce Data Dashboards:",
     "description": "Dynamic dashboards using Power BI & Excel, improving decision-making by 20%.",
     "links": []
   },
   {
-    "title": "System Integration & Workflow Optimization",
+    "title": "System Integration & Workflow Optimization:",
     "description": "Integrated Shopify, Warehouse, OMAS & Inventory systems to reduce operational bottlenecks by 15%.",
     "links": []
   },
   {
-    "title": "Real Estate Content Optimization",
+    "title": "Real Estate Content Optimization:",
     "description": "SEO-optimized blogs and property listings, improving lead engagement by 25%.",
     "links": []
   }
