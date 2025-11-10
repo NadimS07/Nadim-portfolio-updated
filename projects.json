@@ -1,25 +1,22 @@
 [
   {
-    "title": "AI Readability, Tone & Plagiarism Analyzer",
+    "title": "<strong>AI Readability, Tone & Plagiarism Analyzer</strong>",
     "description": "An advanced AI system that evaluates English text across three powerful dimensions — Readability, Tone, and Plagiarism Detection. It combines cognitive linguistics, NLP sentiment modeling, and pattern-based AI for precise text evaluation.",
     "links": [
       { "label": "🌐 Web App", "url": "https://readability-nadim.vercel.app" },
-      { "label": "⚙️ API Docs", "url": "https://readability-backend-production.up.railway.app/docs" },
-      { "label": "💓 Health Check", "url": "https://readability-backend-production.up.railway.app/health" },
       { "label": "→ Frontend Repo", "url": "https://github.com/NadimS07/readability-frontend" },
-      { "label": "→ Backend Repo", "url": "https://github.com/NadimS07/readability-backend" },
-      { "label": "→ Railway Project", "url": "https://railway.com/project/e6cdbe5b-64a8-4540-a54b-0f472b46a6f1?environmentId=52e3b6b3-8ad0-4d00-ba5" }
+      { "label": "→ Backend Repo", "url": "https://github.com/NadimS07/readability-backend" }
     ]
   },
   {
-    "title": "AI Calculator",
+    "title": "<strong>AI Calculator</strong>",
     "description": "A smart calculator powered by AI logic that interprets contextual math queries, probability estimations, and predictive equations. Designed for productivity, education, and analytical computation.",
     "links": [
       { "label": "💻 GitHub Repo", "url": "https://github.com/NadimS07/ai-calculator" }
     ]
   },
   {
-    "title": "Portfolio Website (This Site)",
+    "title": "<strong>Portfolio Website (This Site)</strong>",
     "description": "Personal portfolio built with HTML5, Tailwind CSS, and JavaScript — integrated with AOS and Vercel for smooth animations and global deployment.",
     "links": [
       { "label": "🌐 Live", "url": "https://nadim-portfolio-pied.vercel.app" },
@@ -27,17 +24,17 @@
     ]
   },
   {
-    "title": "E-commerce Data Dashboards",
+    "title": "<strong>E-commerce Data Dashboards</strong>",
     "description": "Dynamic dashboards built using Power BI and Excel, enabling better business intelligence, faster insights, and improved decision-making by 20%.",
     "links": []
   },
   {
-    "title": "Real Estate Content & CRM Optimization",
+    "title": "<strong>Real Estate Content & CRM Optimization</strong>",
     "description": "Automated content and CRM workflows for real estate platforms using AI-based content analysis, reducing lead bottlenecks and improving engagement by 25%.",
     "links": []
   },
   {
-    "title": "Blog Review & Indexing",
+    "title": "<strong>Blog Review & Indexing</strong>",
     "description": "AI-powered blog analysis tool that performs readability, keyword optimization, and auto-indexing for SEO-ready publishing pipelines.",
     "links": []
   }
