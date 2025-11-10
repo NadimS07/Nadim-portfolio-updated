@@ -26,7 +26,9 @@
   {
     "title": "<strong>E-commerce Data Dashboards</strong>",
     "description": "Dynamic dashboards built using Power BI and Excel, enabling better business intelligence, faster insights, and improved decision-making by 20%.",
-    "links": []
+    "links": [
+      { "label": "💻 GitHub Repo", "url": "https://github.com/NadimS07/powerbi-KM-dashboard" }
+    ]
   },
   {
     "title": "<strong>Real Estate Content & CRM Optimization</strong>",
