@@ -280,6 +280,33 @@
       requestAnimationFrame(animate);
     }
     animate();
+  ...
   </script>
+
+  <!-- 🧭 Move to Top Button -->
+  <button id="toTopBtn" class="to-top-btn" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- 🧭 Move to Top Button Script -->
+  <script>
+    const toTopBtn = document.getElementById("toTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 350) {
+        toTopBtn.classList.add("show");
+      } else {
+        toTopBtn.classList.remove("show");
+      }
+    });
+
+    toTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
 </body>
 </html>
