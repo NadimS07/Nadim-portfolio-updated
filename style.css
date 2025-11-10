@@ -198,3 +198,45 @@
 /* small helper to ensure headings bold and accessible */
 .proj-title, .skill-title, .section-title, .proj-title{font-weight:800;color:var(--accent)}
 .proj-title, .skill-title{margin-bottom:8px}
+
+/* ✅ HERO IMAGE STYLING */
+.hero-image-container {
+  position: relative;
+}
+
+.hero-image {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(154, 205, 50, 0.3);
+  box-shadow: 0 0 30px rgba(154, 205, 50, 0.15);
+  transition: all 0.4s ease;
+  animation: fadeInHero 1.2s ease forwards;
+  opacity: 0;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(154, 205, 50, 0.25);
+}
+
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make image smaller on mobile */
+@media (max-width: 768px) {
+  .hero-image {
+    width: 220px;
+    height: 220px;
+    margin-top: 1rem;
+  }
+}
