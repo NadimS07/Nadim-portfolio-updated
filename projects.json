@@ -1,6 +1,6 @@
 [
   {
-    "title": "<strong>AI Readability, Tone & Plagiarism Analyzer</strong>",
+    "title": "AI Readability, Tone & Plagiarism Analyzer",
     "description": "An advanced AI system that evaluates English text across three powerful dimensions — Readability, Tone, and Plagiarism Detection. It combines cognitive linguistics, NLP sentiment modeling, and pattern-based AI for precise text evaluation.",
     "links": [
       { "label": "🌐 Web App", "url": "https://readability-nadim.vercel.app" },
@@ -9,14 +9,14 @@
     ]
   },
   {
-    "title": "<strong>AI Calculator</strong>",
+    "title": "AI Calculator",
     "description": "A smart calculator powered by AI logic that interprets contextual math queries, probability estimations, and predictive equations. Designed for productivity, education, and analytical computation.",
     "links": [
       { "label": "💻 GitHub Repo", "url": "https://github.com/NadimS07/ai-calculator" }
     ]
   },
   {
-    "title": "<strong>Portfolio Website (This Site)</strong>",
+    "title": "Portfolio Website (This Site)",
     "description": "Personal portfolio built with HTML5, Tailwind CSS, and JavaScript — integrated with AOS and Vercel for smooth animations and global deployment.",
     "links": [
       { "label": "🌐 Live", "url": "https://nadim-portfolio-pied.vercel.app" },
@@ -24,19 +24,19 @@
     ]
   },
   {
-    "title": "<strong>E-commerce Data Dashboards</strong>",
+    "title": "E-commerce Data Dashboards",
     "description": "Dynamic dashboards built using Power BI and Excel, enabling better business intelligence, faster insights, and improved decision-making by 20%.",
     "links": [
       { "label": "💻 GitHub Repo", "url": "https://github.com/NadimS07/powerbi-KM-dashboard" }
     ]
   },
   {
-    "title": "<strong>Real Estate Content & CRM Optimization</strong>",
+    "title": "Real Estate Content & CRM Optimization",
     "description": "Automated content and CRM workflows for real estate platforms using AI-based content analysis, reducing lead bottlenecks and improving engagement by 25%.",
     "links": []
   },
   {
-    "title": "<strong>Blog Review & Indexing</strong>",
+    "title": "Blog Review & Indexing",
     "description": "AI-powered blog analysis tool that performs readability, keyword optimization, and auto-indexing for SEO-ready publishing pipelines.",
     "links": []
   }
