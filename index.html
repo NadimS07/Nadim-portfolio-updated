@@ -142,16 +142,23 @@
     const heroTitleEl = document.getElementById('hero-title');
 
     function createHeroSpans(text) {
-      const words = text.split(' ');
-      heroTitleEl.innerHTML = '';
-      words.forEach((w, i) => {
-        const span = document.createElement('span');
-        span.className = 'hero-word';
-        span.style.setProperty('--delay', (i * 80) + 'ms');
-        span.textContent = w + (i < words.length - 1 ? ' ' : '');
-        heroTitleEl.appendChild(span);
-      });
+  const words = text.split(' ');
+  heroTitleEl.innerHTML = '';
+  words.forEach((w, i) => {
+    const span = document.createElement('span');
+    span.className = 'hero-word';
+    span.style.setProperty('--delay', (i * 80) + 'ms');
+    span.textContent = w;
+    heroTitleEl.appendChild(span);
+
+    // Add a non-breaking space after each word (except last)
+    if (i < words.length - 1) {
+      const space = document.createTextNode('\u00A0');
+      heroTitleEl.appendChild(space);
     }
+  });
+}
+
     createHeroSpans(heroText);
 
     /* ---------------------------
