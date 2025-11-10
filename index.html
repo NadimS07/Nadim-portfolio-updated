@@ -11,24 +11,25 @@
   <!-- AOS Animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 
-  <!-- ✅ Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="font-sans antialiased">
-  <!-- 🧠 AI NEURAL NETWORK BACKGROUND (FIXED POSITION) -->
-  <div id="ai-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;"></div>
+  <!-- PROGRESS BAR -->
+  <div id="progress-wrap"><div id="progress-bar"></div></div>
+
+  <!-- AI BG canvas + cursor glow -->
+  <div id="ai-bg" aria-hidden="true"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
   <div class="site-bg relative z-10">
-    <!-- NAV -->
-    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-panel">
-      <a href="#" class="logo inline-flex items-center gap-2">
+    <!-- NAV (sticky + blur) -->
+    <nav id="site-nav" class="nav-panel sticky-nav max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="logo inline-flex items-center gap-2">
         <span class="logo-dot" aria-hidden></span>
         <span class="logo-text">Nadim Sheikh</span>
       </a>
@@ -46,21 +47,20 @@
       <div class="hero-text-container">
         <h2 class="eyebrow text-lime-400 mb-2">Hi, I’m</h2>
 
-        <!-- em-dash removed as requested -->
-        <h1 class="hero-title text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
-          Nadim, an AI-driven E-commerce & Analytics Leader
+        <!-- hero-title words wrapped for word-by-word reveal -->
+        <h1 id="hero-title" class="hero-title text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+          <!-- JS will populate spans here -->
         </h1>
 
-        <!-- kept static as requested -->
-        <p class="hero-sub text-gray-300 text-lg mx-auto mb-6">
+        <p id="hero-sub" class="hero-sub text-gray-300 text-lg mx-auto mb-6">
           Blending Technology, Data, and Psychology to craft smarter solutions.
         </p>
       </div>
 
       <div class="hero-actions flex flex-wrap justify-center gap-4 mb-6">
-        <a href="#about" class="btn btn-primary">Show Profile</a>
-        <a href="#projects" class="btn btn-ghost">Know More</a>
-        <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume" download>📄 Resume</a>
+        <a href="#about" class="btn btn-primary magnetic">Show Profile</a>
+        <a href="#projects" class="btn btn-ghost magnetic">Know More</a>
+        <a href="Nadim_Sheikh_Resume.pdf" class="btn btn-resume magnetic" download>📄 Resume</a>
       </div>
 
       <div class="hero-meta flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
@@ -77,18 +77,10 @@
       <div class="card">
         <h2 class="section-title">About Me</h2>
         <div class="prose">
-          <!-- Updated About Me (bold name + added project & client mgmt + hobbies) -->
           <p>
-            I’m <strong>Nadim Salim Sheikh</strong>, a Team Lead at Arista Systems with over
-            7 years of experience driving operational excellence in e-commerce, AI analytics, project & client management,
-            and process automation. My work blends data science, psychology, and technology to build solutions that
-            optimize workflows, simplify decision-making, and enhance user experiences.
-          </p>
-
-          <p>
-            I’m passionate about turning raw data into stories that empower teams and inspire smarter business actions.
-            Outside of work, I enjoy working out at the gym, reading books, travelling,
-            and playing football.
+            I’m <strong>Nadim Salim Sheikh</strong>, a Team Lead at Arista Systems with over 7 years of experience driving operational excellence in e-commerce, AI analytics, project & client management, and process automation.
+            My work blends data science, psychology, and technology to build solutions that optimize workflows, simplify decision-making, and enhance user experiences.
+            I’m passionate about turning raw data into stories that empower teams and inspire smarter business actions. Outside of work, I enjoy working out in the gym, reading books, travelling, and playing football.
           </p>
         </div>
       </div>
@@ -118,54 +110,70 @@
         <h3 class="section-title">Let’s Connect</h3>
         <p class="muted mb-6">Open to leadership roles, AI-integrated product work, and analytics initiatives.</p>
 
-        <!-- SOCIAL ICON BUTTONS -->
         <div class="flex justify-center flex-wrap gap-4 mb-6">
-          <a href="mailto:nadimsheikh96@gmail.com" class="social-btn" title="Email">
-            <i class="fa-solid fa-envelope mr-2"></i> Email
-          </a>
-          <a href="https://github.com/NadimS07" target="_blank" rel="noopener" class="social-btn" title="GitHub">
-            <i class="fa-brands fa-github mr-2"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/nadims07" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
-            <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
-          </a>
-          <a href="https://x.com/NadimS07" target="_blank" rel="noopener" class="social-btn" title="X">
-            <i class="fa-brands fa-x-twitter mr-2"></i> X
-          </a>
-          <a href="https://www.instagram.com/nadimsheikh07" target="_blank" rel="noopener" class="social-btn" title="Instagram">
-            <i class="fa-brands fa-instagram mr-2"></i> Instagram
-          </a>
+          <a href="mailto:nadimsheikh96@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://github.com/NadimS07" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/nadims07" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://x.com/NadimS07" target="_blank" class="social-btn"><i class="fa-brands fa-x-twitter"></i> X</a>
+          <a href="https://www.instagram.com/nadimsheikh07" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
 
         <p class="muted">© 2025 Nadim Salim Sheikh · Built with HTML, Tailwind CSS & AOS</p>
       </div>
     </section>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
   </div>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- MAIN SCRIPTS -->
   <script>
     AOS.init({ duration: 900, once: true });
 
-    // Skills Loader
+    /* ---------------------------
+       HERO WORD-BY-WORD REVEAL
+       --------------------------- */
+    const heroText = "Nadim, an AI-driven E-commerce & Analytics Leader";
+    const heroTitleEl = document.getElementById('hero-title');
+
+    function createHeroSpans(text) {
+      const words = text.split(' ');
+      heroTitleEl.innerHTML = '';
+      words.forEach((w, i) => {
+        const span = document.createElement('span');
+        span.className = 'hero-word';
+        span.style.setProperty('--delay', (i * 80) + 'ms');
+        span.textContent = w + (i < words.length - 1 ? ' ' : '');
+        heroTitleEl.appendChild(span);
+      });
+    }
+    createHeroSpans(heroText);
+
+    /* ---------------------------
+       LOAD SKILLS & PROJECTS
+       --------------------------- */
     fetch('skills.json')
       .then(r => r.ok ? r.json() : [])
       .then(skills => {
         const c = document.getElementById('skills-container');
         if (!skills.length) {
-          c.innerHTML = '<p class="text-center text-gray-400"⚙️ Skills coming soon...</p>';
+          c.innerHTML = '<p class="text-center text-gray-400">⚙️ Skills coming soon...</p>';
           return;
         }
         skills.forEach(s => {
           c.innerHTML += `
             <div class="skill-card" data-aos="fade-up">
-              <h4 class="skill-title">${escapeHtml(s.title || '')}</h4>
-              <p class="skill-desc">${escapeHtml(s.details || s.items || s.description || '')}</p>
+              <h4 class="skill-title">${s.title}</h4>
+              <p class="skill-desc">${s.details}</p>
             </div>`;
         });
       });
 
-    // Projects Loader
     fetch('projects.json')
       .then(r => r.ok ? r.json() : [])
       .then(projects => {
@@ -177,47 +185,81 @@
         projects.forEach(p => {
           let linksHtml = '';
           if (p.links && p.links.length) {
-            linksHtml = `
-              <div class="proj-links mt-3">
-                ${p.links.map(l => `
-                  <a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer" class="proj-link">
-                    ${escapeHtml(l.label)}
-                  </a>
-                `).join('')}
-              </div>
-            `;
+            linksHtml = `<div class="proj-links mt-3">${p.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="proj-link">${l.label}</a>`).join('')}</div>`;
           }
+          // ensure titles are safe plain text (no stray HTML)
+          const safeTitle = (p.title || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
           c.innerHTML += `
             <div class="project-card" data-aos="fade-up">
-              <h4 class="proj-title">${escapeHtml(p.title)}</h4>
-              <p class="proj-desc">${escapeHtml(p.description || '')}</p>
+              <h4 class="proj-title">${safeTitle}</h4>
+              <p class="proj-desc">${p.description || ''}</p>
               ${linksHtml}
-            </div>
-          `;
+            </div>`;
         });
       });
 
-    // Small utility to sanitize inserted text
-    function escapeHtml(unsafe) {
-      if (unsafe === undefined || unsafe === null) return '';
-      return String(unsafe)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-  </script>
+    /* ---------------------------
+       STICKY NAV BLUR & SCROLL PROGRESS
+       --------------------------- */
+    const progressBar = document.getElementById('progress-bar');
+    const backToTop = document.getElementById('back-to-top');
+    const nav = document.getElementById('site-nav');
 
-  <!-- 🧬 Neural Network Background (no parallax; static hero) -->
-  <script>
+    function onScroll() {
+      const scrolled = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+
+      // nav blur / background toggle
+      if (scrolled > 40) {
+        nav.classList.add('nav--scrolled');
+        backToTop.classList.add('visible');
+      } else {
+        nav.classList.remove('nav--scrolled');
+        backToTop.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ---------------------------
+       CURSOR GLOW & MAGNETIC BUTTONS
+       --------------------------- */
+    const cursorGlow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX, y = e.clientY;
+      cursorGlow.style.transform = `translate3d(${x - 18}px, ${y - 18}px, 0)`;
+    });
+
+    // magnetic effect for elements with .magnetic
+    const magnets = document.querySelectorAll('.magnetic');
+    magnets.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const dx = (e.clientX - rect.left) - rect.width / 2;
+        const dy = (e.clientY - rect.top) - rect.height / 2;
+        el.style.transform = `translate(${dx * 0.08}px, ${dy * 0.06}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+
+    /* ---------------------------
+       PARTICLE CANVAS (neural + connection lines)
+       Slightly enhanced to react to cursor proximity
+       --------------------------- */
     const aiBg = document.getElementById('ai-bg');
     const canvas = document.createElement('canvas');
     aiBg.appendChild(canvas);
     const ctx = canvas.getContext('2d');
-
     let particles = [];
-    const numParticles = 45;
+    const numParticles = Math.min(Math.floor(window.innerWidth / 30), 60);
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -228,19 +270,22 @@
 
     class Particle {
       constructor() {
+        this.reset();
+      }
+      reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.vx = (Math.random() - 0.5) * 0.6;
         this.vy = (Math.random() - 0.5) * 0.6;
-        this.size = Math.random() * 2 + 1;
-        this.color = `rgba(154,205,50,${0.4 + Math.random() * 0.4})`;
+        this.size = 1 + Math.random() * 2;
+        this.baseAlpha = 0.25 + Math.random() * 0.45;
       }
-      draw() {
-        ctx.beginPath();
-        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 4);
-        g.addColorStop(0, this.color);
+      draw(alphaMod = 1) {
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, Math.max(8, this.size * 6));
+        g.addColorStop(0, `rgba(154,205,50,${this.baseAlpha * alphaMod})`);
         g.addColorStop(1, 'transparent');
         ctx.fillStyle = g;
+        ctx.beginPath();
         ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
         ctx.fill();
       }
@@ -249,11 +294,24 @@
         this.y += this.vy;
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        this.draw();
       }
     }
 
-    for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+    }
+    initParticles();
+
+    let mouse = { x: -9999, y: -9999 };
+
+    document.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    document.addEventListener('mouseleave', () => {
+      mouse.x = -9999; mouse.y = -9999;
+    });
 
     function connectParticles() {
       for (let a = 0; a < particles.length; a++) {
@@ -262,8 +320,16 @@
           const dy = particles[a].y - particles[b].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
-            ctx.strokeStyle = `rgba(154,205,50,${0.12 - dist / 1000})`;
-            ctx.lineWidth = 0.8;
+            const midx = (particles[a].x + particles[b].x) / 2;
+            const midy = (particles[a].y + particles[b].y) / 2;
+            // make lines stronger when cursor is near the midpoint
+            const mdx = mouse.x - midx;
+            const mdy = mouse.y - midy;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            let alpha = 0.08 - dist / 2000;
+            if (mdist < 160) alpha += 0.12 * (1 - mdist / 160);
+            ctx.strokeStyle = `rgba(154,205,50,${Math.max(0, alpha)})`;
+            ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(particles[a].x, particles[a].y);
             ctx.lineTo(particles[b].x, particles[b].y);
@@ -275,38 +341,26 @@
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => p.update());
+      particles.forEach(p => {
+        p.update();
+        // brighten particles near cursor
+        const dx = p.x - mouse.x, dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const alphaMod = dist < 140 ? 1.6 - dist / 140 : 1;
+        p.draw(alphaMod);
+      });
       connectParticles();
       requestAnimationFrame(animate);
     }
     animate();
-  ...
-  </script>
 
-  <!-- 🧭 Move to Top Button -->
-  <button id="toTopBtn" class="to-top-btn" title="Go to top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <!-- 🧭 Move to Top Button Script -->
-  <script>
-    const toTopBtn = document.getElementById("toTopBtn");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 350) {
-        toTopBtn.classList.add("show");
-      } else {
-        toTopBtn.classList.remove("show");
-      }
+    /* ---------------------------
+       Ensure back-to-top is accessible when keyboard-focused
+       --------------------------- */
+    backToTop.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    toTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
   </script>
-
 </body>
 </html>
