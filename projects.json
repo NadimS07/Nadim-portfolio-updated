@@ -15,7 +15,6 @@
     "title": "AI Calculator",
     "description": "A smart calculator powered by AI logic that interprets contextual math queries, probability estimations, and predictive equations. Designed for productivity, education, and analytical computation.",
     "links": [
-      { "label": "🌐 Live App", "url": "https://ai-calculator-nadim.vercel.app" },
       { "label": "💻 GitHub Repo", "url": "https://github.com/NadimS07/ai-calculator" }
     ]
   },
@@ -30,24 +29,16 @@
   {
     "title": "E-commerce Data Dashboards",
     "description": "Dynamic dashboards built using Power BI and Excel, enabling better business intelligence, faster insights, and improved decision-making by 20%.",
-    "links": [
-      { "label": "📊 Power BI Dashboard", "url": "https://app.powerbi.com/" }
-    ]
+    "links": []
   },
   {
     "title": "Real Estate Content & CRM Optimization",
     "description": "Automated content and CRM workflows for real estate platforms using AI-based content analysis, reducing lead bottlenecks and improving engagement by 25%.",
-    "links": [
-      { "label": "🏠 View System", "url": "https://crm-optimizer-nadim.vercel.app" },
-      { "label": "💻 GitHub", "url": "https://github.com/NadimS07/crm-optimizer" }
-    ]
+    "links": []
   },
   {
     "title": "Blog Review & Indexing",
     "description": "AI-powered blog analysis tool that performs readability, keyword optimization, and auto-indexing for SEO-ready publishing pipelines.",
-    "links": [
-      { "label": "📰 Live Tool", "url": "https://blog-indexer-nadim.vercel.app" },
-      { "label": "💻 GitHub Repo", "url": "https://github.com/NadimS07/blog-review-indexer" }
-    ]
+    "links": []
   }
 ]
